@@ -1,0 +1,13 @@
+[Unit]
+Description=Zookeeper Service
+
+[Service]
+Type=forking
+User=root
+Group=root
+WorkingDirectory=/home/zookeeper
+ExecStart=/home/zookeeper/bin/zkServer.sh start
+ExecStop=/home/zookeeper/bin/zkServer.sh stop
+
+[Install]
+WantedBy=multi-user.target

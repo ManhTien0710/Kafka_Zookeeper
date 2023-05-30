@@ -1,0 +1,15 @@
+[Unit]
+Requires=network.target remote-fs.target zookeeper.service
+After=network.target remote-fs.target zookeeper.service
+Description=Kafka Service
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/kafka
+ExecStart=/home/kafka/bin/kafka-server-start.sh /home/kafka/config/server.properties
+ExecStop=/home/kafka/bin/kafka-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target
